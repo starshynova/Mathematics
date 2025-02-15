@@ -4,8 +4,9 @@ import QuestionSectionSet from './QuestionSectionSet.jsx';
 const MainPage = () => {
 
     return (
-        <div className="center">
-            <h1>Are you ready to do some math exercises?</h1>
+        <div className="main-page">
+            <h1>Mathematics</h1>
+            <h2>Are you ready?</h2>
             <QuestionSectionSet />
         </div> 
     )

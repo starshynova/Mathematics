@@ -32,15 +32,15 @@ const ResultPage = () => {
     };
 
     return (
-        <>
+        <div className="result-block">
             <h1>Your score is</h1>
             <p>Correct answers: {countCorrectAnswer}</p>
             <p>Incorrect answers: {countIncorrectAnswer}</p>
             <h2>{advice}</h2>
             <Link to={'/'}>
-                <Button title="Main Page" onButtonClick={goToMainPage} />
+                <Button className="go-to-main-page-button" title="Go to the Main Page" onButtonClick={goToMainPage} />
             </Link>
-        </>
+        </div>
     );
 };
 

@@ -3,6 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {useParams} from 'react-router-dom';
 import './component.css';
+import Button from './Button.jsx';
 
 
 const QuestionSection = ({ operation }) => {
@@ -10,9 +11,10 @@ const QuestionSection = ({ operation }) => {
     return (
         
         <Link to={`/${operation}`}>
-        <button className="question-section">
+            <Button className="question-section" title={operation} />
+        {/* <button className="question-section">
             {operation}
-        </button>
+        </button> */}
         </Link>
        
     )
