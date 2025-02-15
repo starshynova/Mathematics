@@ -1,0 +1,11 @@
+{
+    "name": "starshynova-project",
+    "private": true,
+    "workspaces": [
+        "server",
+        "client"
+    ],
+    "devDependencies": {
+        "prettier": "3.5.1"
+    }
+}
