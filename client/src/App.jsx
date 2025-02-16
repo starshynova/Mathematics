@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import QuestionPage from './components/QuestionPage.jsx';
-import { CountProvider } from './components/CountContext.jsx'
-import ResultPage from './components/ResultPage.jsx'
-import MainPage from './components/MainPage.jsx';
+import QuestionPage from './pages/QuestionPage.jsx';
+import { CountProvider } from './context/CountContext.jsx'
+import ResultPage from './pages/ResultPage.jsx'
+import MainPage from './pages/MainPage.jsx';
 
 
 

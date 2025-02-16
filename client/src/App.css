@@ -11,7 +11,6 @@ body {
   height: auto;
   display: flex;
   flex-direction: column;
-  /* background-color: rgba(126, 128, 217, 1); */
 }
 
 :root {

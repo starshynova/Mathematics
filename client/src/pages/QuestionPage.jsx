@@ -1,15 +1,15 @@
 import React from 'react';
 import {useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
-import InputField from './InputField.jsx';
-import Button from './Button.jsx';
-import useGenerateExample from './useGenerateExample.jsx';
-import {useCount} from './useCount.jsx';
-import './component.css';
+import InputField from '../components/InputField.jsx';
+import Button from '../components/Button.jsx';
+import useGenerateExample from '../hooks/useGenerateExample.jsx';
+import {useCount} from '../hooks/useCount.jsx';
+import '../components/component.css';
 import defaultImage from '../assets/default.png'
 import correctImage from '../assets/happy.png';
 import incorrectImage from '../assets/sad.png';
-import Header from './Header.jsx';
+import Header from '../components/Header.jsx';
 
 
 

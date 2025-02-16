@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useCount } from './useCount.jsx';
+import { useCount } from '../hooks/useCount.jsx';
 import { Link } from 'react-router-dom';
-import Button from './Button.jsx';
+import Button from '../components/Button.jsx';
 
 const ResultPage = () => {
     const [advice, setAdvice] = useState('');

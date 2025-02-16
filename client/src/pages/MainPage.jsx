@@ -1,5 +1,5 @@
 import React from 'react';
-import OperationList from './OperationList.jsx';
+import OperationList from '../components/OperationList.jsx';
 import image from '../assets/default.png';
 
 const MainPage = () => {

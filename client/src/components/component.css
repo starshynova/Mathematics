@@ -114,7 +114,6 @@ button:hover {
   width: 35%;
   height: 100%;
   justify-content: center;
-  /* align-items: center; */
 }
 
 .img-example-page {
@@ -388,6 +387,7 @@ h2 {
   .image-block {
     width: 40%;
     height: auto;
+    justify-content: flex-start;
   }
   
   .img-example-page {
