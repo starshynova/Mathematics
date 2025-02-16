@@ -9,6 +9,7 @@ import './component.css';
 import defaultImage from '../assets/default.png'
 import correctImage from '../assets/happy.png';
 import incorrectImage from '../assets/sad.png';
+import Header from './Header.jsx';
 
 
 
@@ -43,6 +44,8 @@ const QuestionPage = () => {
 
 
   return (
+    <>
+    <Header />
     <div className="example-page">
       <div className="image-block">
         <img src={imageSrc} className="img-example-page"/>
@@ -68,6 +71,7 @@ const QuestionPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
