@@ -1,14 +1,15 @@
 import express from "express";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import cors from "cors";
+import dotenv from "dotenv";
 
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
 
-const uri = "mongodb+srv://starshynova:starshynova@cluster0.gom3j.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const client = new MongoClient(uri, {
+dotenv.config();
+const client = new MongoClient(process.env.MONGODB_URL, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
