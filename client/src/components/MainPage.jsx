@@ -6,7 +6,6 @@ const MainPage = () => {
 
     return (
         <div className="main-page">
-            {/* <div className="main-img-title"> */}
                 <div className="main-img">
                     <img src={image} className="img-size"/>
                 </div>
@@ -18,7 +17,6 @@ const MainPage = () => {
                     <QuestionSectionSet />
                 </div>
             </div>
-        // </div> 
     )
 }
 
