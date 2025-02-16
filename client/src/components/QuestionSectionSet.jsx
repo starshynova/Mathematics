@@ -23,12 +23,9 @@ const QuestionSectionSet = () => {
         <div className="question-section-set">
             {data.map((question) => (
                 <Link to={`/${question.operation}`}>
-                <Button className="operation-button" title={question.operation} />
+                <Button className="operation-button" title={question.operation.charAt(0).toUpperCase() + question.operation.slice(1)} />
                 </Link>
             ))}
-            {/* {data.map((question) => (
-                <QuestionSection key={question._id} operation={question.operation} />
-            ))} */}
         </div>
     );
 };

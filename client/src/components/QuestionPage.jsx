@@ -45,26 +45,28 @@ const QuestionPage = () => {
   return (
     <div className="example-page">
       <div className="image-block">
-      <img src={imageSrc} className="img-example-page"/></div>
-    <div className="example-block">
-      <h2>{operation}</h2>
-      {/* <p>{formula}</p> */}
-      <div className="example-answer">
-     <div className="example-box">
-       <p className="example-text">{example}</p>
-      </div> 
-      <p>{correctAnswer}</p>
+        <img src={imageSrc} className="img-example-page"/>
       </div>
-      <InputField onInputChange={handleInputChange} userAnswer={userAnswer} />
-      <div className="answer-block">
-        <Button className="answer-button" onButtonClick={checkAnswer} title="Check answer"/>
-        <Button className="answer-button" onButtonClick={nextExample} title="Next example"/>
-      
-        <Link to={'/result'}>
-          <Button className="answer-button" title="Show result" />
-        </Link>
+      <div className="example-block">
+        <h2>{operation.charAt(0).toUpperCase() + operation.slice(1)}</h2>
+        <p className="formula">{formula}</p>
+        <div className="example-answer">
+          <div className="example-box">
+            <p className="example-text">{example}</p>
+          </div> 
+          <div className="center">
+            <p className="correct-incorrect-answer">{correctAnswer}</p>
+          </div>
         </div>
+        <InputField onInputChange={handleInputChange} userAnswer={userAnswer} />
+        <div className="answer-block">
+          <Button className="answer-button" onButtonClick={checkAnswer} title="Check answer"/>
+          <Button className="answer-button" onButtonClick={nextExample} title="Next example"/>
+          <Link to={'/result'}>
+            <Button className="answer-button" title="Show result" />
+          </Link>
         </div>
+      </div>
     </div>
   );
 };

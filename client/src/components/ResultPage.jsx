@@ -34,8 +34,8 @@ const ResultPage = () => {
     return (
         <div className="result-block">
             <h1>Your score is</h1>
-            <p>Correct answers: {countCorrectAnswer}</p>
-            <p>Incorrect answers: {countIncorrectAnswer}</p>
+            <p className="result">Correct answers: {countCorrectAnswer}</p>
+            <p className="result">Incorrect answers: {countIncorrectAnswer}</p>
             <h2>{advice}</h2>
             <Link to={'/'}>
                 <Button className="go-to-main-page-button" title="Go to the Main Page" onButtonClick={goToMainPage} />

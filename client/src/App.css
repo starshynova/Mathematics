@@ -1,9 +1,9 @@
 #root {
   width: 100%;
   height: 100vh;
-  justify-content: center;
+  /* justify-content: center; */
   display: flex;
-  padding: auto;
+  /* padding: auto; */
   background-color: rgba(126, 128, 217, 1);
   
 }

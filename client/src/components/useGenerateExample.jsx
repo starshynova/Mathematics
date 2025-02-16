@@ -69,7 +69,7 @@ const useGenerateExample = (operation) => {
         }
     }, [dataOperation]);
 
-    return { example, result, generateNewExample }
+    return { example, result, formula, generateNewExample }
 }
 
 export default useGenerateExample;

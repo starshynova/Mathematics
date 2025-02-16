@@ -7,7 +7,7 @@ export const useCount = () => {
 
   const answerCalculation = (userAnswer, result) => {
     if (Number(userAnswer) === result) {
-        setCorrectAnswer("Your answer is correct!");
+        setCorrectAnswer("Correct!");
         setCountCorrectAnswer((prev) => prev + 1);
     } else {
         setCorrectAnswer("Try again!");
