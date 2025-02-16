@@ -6,7 +6,7 @@ import Button from './Button.jsx';
 import useGenerateExample from './useGenerateExample.jsx';
 import {useCount} from './useCount.jsx';
 import './component.css';
-import defaultImage from '../assets/main.png'
+import defaultImage from '../assets/default.png'
 import correctImage from '../assets/happy.png';
 import incorrectImage from '../assets/sad.png';
 
@@ -17,7 +17,7 @@ const QuestionPage = () => {
   const { operation } = useParams();
   const { example, result, formula, generateNewExample } = useGenerateExample(operation);
   const [userAnswer, setUserAnswer] = useState("");
-  const { countCorrectAnswer, countIncorrectAnswer, correctAnswer, setCorrectAnswer, answerCalculation } = useCount();
+  const { correctAnswer, setCorrectAnswer, answerCalculation } = useCount();
   const [imageSrc, setImageSrc] = useState(defaultImage);
 
 

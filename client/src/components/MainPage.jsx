@@ -1,6 +1,6 @@
 import React from 'react';
-import QuestionSectionSet from './QuestionSectionSet.jsx';
-import image from '../assets/main.png';
+import OperationList from './OperationList.jsx';
+import image from '../assets/default.png';
 
 const MainPage = () => {
 
@@ -14,7 +14,7 @@ const MainPage = () => {
                         <h1>Mathematics</h1>
                         <h2>Are you ready?</h2>
                     </div>
-                    <QuestionSectionSet />
+                    <OperationList />
                 </div>
             </div>
     )

@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState} from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import QuestionPage from './components/QuestionPage.jsx';
@@ -12,12 +12,6 @@ function App() {
   const [countCorrectAnswer, setCountCorrectAnswer] = useState(0);
   const [countIncorrectAnswer, setCountIncorrectAnswer] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState("");
-
-
-  // const resetCounts = useCallback(() => {
-  //   setCountCorrectAnswer(0);
-  //   setCountIncorrectAnswer(0);
-  // }, []);
 
   return (
     <CountProvider value={{ countCorrectAnswer, setCountCorrectAnswer, countIncorrectAnswer, setCountIncorrectAnswer, correctAnswer, setCorrectAnswer }}>
