@@ -1,6 +1,5 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
-import {getOperationName} from '../getData.js';
 import './component.css';
 import {Link} from 'react-router-dom';
 import Button from './Button.jsx';
@@ -11,8 +10,9 @@ const OperationList = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await getOperationName();
-            setData(result);
+            const result = await fetch("http://localhost:5000/api/math-operation");
+            const data = await result.json();
+            setData(data);
         };
 
         fetchData();

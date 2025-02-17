@@ -1,6 +1,6 @@
 import { parse } from "mathjs";
-import { randomNumber } from "../randomNumbers.js";
-import { getData } from "../getData.js";
+import { randomNumber } from "./randomNumbers.js";
+import { getData } from "./getData.js";
 
 export const generateExample = async (operation) => {
     const data = await getData();

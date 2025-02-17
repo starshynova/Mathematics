@@ -2,7 +2,7 @@ import express from "express";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import cors from "cors";
 import dotenv from "dotenv";
-import { generateExample } from "./generateExamples.js";
+import { generateExample } from "./generateExample.js";
 
 const app = express();
 const PORT = 5000;
