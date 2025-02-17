@@ -1,6 +1,8 @@
 import React from 'react';
 import OperationList from '../components/OperationList.jsx';
 import image from '../assets/default.png';
+import Button from '../components/Button.jsx';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
 
@@ -16,6 +18,9 @@ const MainPage = () => {
                     </div>
                     <OperationList />
                 </div>
+                <Link to={'/quiz'}>
+                    <Button title="Go to quiz" className="operation-button" />
+                </Link>
             </div>
     )
 }

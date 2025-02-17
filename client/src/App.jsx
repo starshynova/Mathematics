@@ -5,6 +5,7 @@ import QuestionPage from './pages/QuestionPage.jsx';
 import { CountProvider } from './context/CountContext.jsx'
 import ResultPage from './pages/ResultPage.jsx'
 import MainPage from './pages/MainPage.jsx';
+import QuizPage from './pages/QuizPage.jsx';
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path ="/" element={<MainPage />} />
           <Route path="/:operation" element={<QuestionPage />} />
           <Route path="/result" element={<ResultPage />} />
+          <Route path="/quiz" element={<QuizPage />} />
         </Routes>
       </BrowserRouter>
     </CountProvider>

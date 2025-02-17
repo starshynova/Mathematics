@@ -442,3 +442,29 @@ h2 {
     font-size: 22px;
   }
 }
+
+.answer-card {
+  width: 256px;
+  height: 128px;
+  padding: 16px; /* p-4 (1rem = 16px) */
+  margin: 8px; /* m-2 (0.5rem = 8px) */
+  background-color: #3b82f6; /* bg-blue-500 */
+  color: white; /* text-white */
+  text-align: center; /* text-center */
+  border-radius: 4px; /* rounded (4px) */
+  cursor: grab; /* cursor-grab */
+}
+
+.drop-zone {
+  padding: 24px; /* p-6 (1.5rem = 24px) */
+  border-width: 2px; /* border-2 */
+  border-style: dashed; /* border-dashed */
+  border-color: #6b7280; /* border-gray-500 */
+  border-radius: 8px; /* rounded-lg (8px) */
+  width: 256px; /* w-64 (64 * 4px = 256px) */
+  height: 128px; /* h-32 (32 * 4px = 128px) */
+  
+  display: flex; /* flex (включает flexbox) */
+  align-items: center; /* items-center (выравнивание по вертикали) */
+  justify-content: center; /* justify-center (выравнивание по горизонтали) */
+}
