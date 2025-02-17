@@ -2,6 +2,7 @@ import express from "express";
 import { MongoClient, ServerApiVersion } from "mongodb";
 import cors from "cors";
 import dotenv from "dotenv";
+import { generateExample } from "./generateExample.js";
 
 const app = express();
 const PORT = 5000;
@@ -48,6 +49,16 @@ app.get("/api/questions", async (req, res) => {
     res.status(500).json({ error: "Database error" });
   } finally {
     await client.close();
+  }
+});
+
+app.get("/generate/:operation", async (req, res) => {
+  const { operation } = req.params;
+  try {
+      const exampleData = await generateExample(operation);
+      res.json(exampleData);
+  } catch (error) {
+      res.status(400).json({ error: error.message });
   }
 });
 

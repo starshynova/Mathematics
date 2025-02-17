@@ -47,56 +47,54 @@ Data necessary for the application - the name of the math operation, the formula
 ├── README.md
 ├── package.json
 ├── package-lock.json
-├── .gitignore
 ├── node_modules/
 ├── client
-│   ├── .gitignore
 │   ├── eslint.config.js
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── vite.config.js
-│   ├── dist/
-│   │   ├── assets/
+│   ├── dist
+│   │   ├── assets
 │   │   │   ├── default-DJLP6i-q.png
 │   │   │   ├── happy-lMPrIiSO.png
 │   │   │   ├── index-Bw-okdC8.js
 │   │   │   ├── index-CRMeaEYv.css
-│   │   │   ├── sad-whhlb0Fk.png
+│   │   │   └── sad-whhlb0Fk.png
 │   │   ├── index.html
-│   │   ├── vite.svg
-│   ├── node_modules/
-│   ├── public/
-│   │   ├── math-icon.svg
-│   ├── src/
-│   │   ├── assets/
+│   │   └── vite.svg
+│   ├── node_modules
+│   ├── public
+│   │   └── math-icon.svg
+│   ├── src
+│   │   ├── assets
 │   │   │   ├── default.png
 │   │   │   ├── happy.png
-│   │   │   ├── sad.png
-│   │   ├── components/
+│   │   │   └── sad.png
+│   │   ├── components
 │   │   │   ├── Button.jsx
 │   │   │   ├── GoBackButton.jsx
 │   │   │   ├── Header.jsx
 │   │   │   ├── InputField.jsx
 │   │   │   ├── OperationList.jsx
-│   │   │   ├── component.css
-│   │   ├── context/
-│   │   │   ├── CountContext.jsx
-│   │   ├── hooks/
+│   │   │   └── component.css
+│   │   ├── context
+│   │   │   └── CountContext.jsx
+│   │   ├── hooks
 │   │   │   ├── useCount.jsx
-│   │   │   ├── useGenerateExample.jsx
-│   │   ├── pages/
+│   │   │   └── useGenerateExample.jsx
+│   │   ├── pages
 │   │   │   ├── MainPage.jsx
 │   │   │   ├── QuestionPage.jsx
-│   │   │   ├── ResultPage.jsx
+│   │   │   └── ResultPage.jsx
 │   │   ├── App.css
 │   │   ├── App.jsx
-│   │   ├── getData.js
-│   │   ├── main.jsx
-│   │   ├── randomNumbers.js
+│   │   └── main.jsx
 └── server
     ├── .env
-    ├── .gitignore
+    ├── generateExample.js
+    ├── getData.js
     ├── package.json
-    ├── server.js
+    ├── randomNumbers.js
+    └── server.js
 ```
