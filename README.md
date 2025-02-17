@@ -14,7 +14,7 @@ This action resets the correct/incorrect answer count to zero.
 
 ## Getting the data
 
-Data necessary for the application - the name of the math operation, the formula, the range of accepted values, the validation formula. These data are stored in the MongoDB database. React application fetches this data using fetch API, and converts strings into expression format. 
+Data necessary for the application - the name of the math operation, the formula, the range of accepted values, the validation formula. These data are stored in the MongoDB database. React application fetches this data using fetch API, and converts strings into expression format.
 
 ## Technologies
 
@@ -33,13 +33,13 @@ Data necessary for the application - the name of the math operation, the formula
 
 ### Deploy
 
-1. Netlify.com - hosting for client side
-2. Render.com - hosting for server side
-3. UptimeRobot.com - service for server monitoring
+1. Netlify.com - hosting for the client side
+2. Render.com - hosting for the server side
 
 ## Getting started
 
-https://math-app-for-children.netlify.app/ - to run the application
+1. https://react-project-t4ti.onrender.com/api/math-operation - to run the server
+2. https://math-app-for-children.netlify.app/ - to run the application
 
 ## Structure of the project
 
@@ -55,7 +55,6 @@ https://math-app-for-children.netlify.app/ - to run the application
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
-│   ├── README.md
 │   ├── vite.config.js
 │   ├── dist/
 │   │   ├── assets/
