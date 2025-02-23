@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import {API_ROUTES} from "../config/apiRoutes";
 
 const useGenerateExample = (operation) => {
     const [formula, setFormula] = useState("");
@@ -9,7 +10,7 @@ const useGenerateExample = (operation) => {
     const generateNewExample = async () => {
         try {
             // const response = await fetch(`https://localhost:5000/generate/${operation}`);
-            const response = await fetch(`https://react-project-t4ti.onrender.com/generate/${operation}`);
+            const response = await fetch(API_ROUTES.GENERATE_EXAMPLE(operation));
             const data = await response.json();
 
             setExample(data.example);
