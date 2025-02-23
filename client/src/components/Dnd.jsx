@@ -97,8 +97,15 @@ const initialAnswers = [
   { id: "4", text: "Правильный ответ", correct: true },
 ];
 
-const AnswerCard = ({ id, text, isDropped }) => {
-  const { attributes, listeners, setNodeRef } = useDraggable({ id });
+const AnswerCard = ({ id, text, isDropped, isDragging }) => {
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+
+  const style = {
+    transform: transform
+      ? `translate(${transform.x}px, ${transform.y}px)`
+      : "none",
+    transition: isDragging ? "none" : "transform 0.3s ease-in-out",
+  };
 
   return (
     <div
@@ -106,6 +113,7 @@ const AnswerCard = ({ id, text, isDropped }) => {
       {...listeners}
       {...attributes}
       className={`answer-card ${isDropped ? "empty-card" : ""}`}
+      style={style}
     >
       {isDropped ? "" : text}
     </div>
@@ -129,25 +137,40 @@ const DropZone = ({ droppedAnswer }) => {
 const Quiz = () => {
   const [answers, setAnswers] = useState(initialAnswers);
   const [droppedAnswer, setDroppedAnswer] = useState(null);
+  const [draggingItem, setDraggingItem] = useState(null);
+
+  const handleDragStart = (event) => {
+    setDraggingItem(event.active.id);
+  };
 
   const handleDragEnd = (event) => {
     const { over, active } = event;
+    const selectedAnswer = answers.find((a) => a.id === active.id);
 
     if (over?.id === "dropzone") {
-      const selectedAnswer = answers.find((a) => a.id === active.id);
-      setDroppedAnswer(selectedAnswer);
+      // Если в drop-зоне уже есть ответ, вернуть его назад
+      if (droppedAnswer) {
+        setAnswers((prev) =>
+          prev.map((a) =>
+            a.id === droppedAnswer.id ? { ...a, isDropped: false } : a
+          )
+        );
+      }
 
-      // Обновляем список ответов, заменяя перетянутый элемент на пустой
-      setAnswers((prevAnswers) =>
-        prevAnswers.map((a) =>
-          a.id === active.id ? { ...a, text: "", isDropped: true } : a
+      // Перемещаем новый ответ в drop-зону
+      setDroppedAnswer(selectedAnswer);
+      setAnswers((prev) =>
+        prev.map((a) =>
+          a.id === active.id ? { ...a, isDropped: true } : a
         )
       );
     }
+
+    setDraggingItem(null);
   };
 
   return (
-    <DndContext onDragEnd={handleDragEnd}>
+    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="quiz-container">
         <div className="answers-container">
           {answers.map((answer) => (
@@ -156,6 +179,7 @@ const Quiz = () => {
               id={answer.id}
               text={answer.text}
               isDropped={answer.isDropped}
+              isDragging={draggingItem === answer.id}
             />
           ))}
         </div>
