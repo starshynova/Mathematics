@@ -1,4 +1,4 @@
-import { API_ROUTES } from "./config/apiRoutes";
+import { API_ROUTES } from "./config/apiRoutes.js";
 
 export const getOperationName = async () => {
   try {
