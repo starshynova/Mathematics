@@ -1,20 +1,20 @@
 import React from 'react';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {API_ROUTES} from "../config/apiRoutes";
+import { CountContext } from '../context/CountContext.jsx';
 
 const useGenerateExample = (operation) => {
     const [formula, setFormula] = useState("");
     const [example, setExample] = useState("");
-    const [result, setResult] = useState("");
+    const { correctResult, setCorrectResult } = useContext(CountContext);
 
     const generateNewExample = async () => {
         try {
-            // const response = await fetch(`https://localhost:5000/generate/${operation}`);
             const response = await fetch(API_ROUTES.GENERATE_EXAMPLE(operation));
             const data = await response.json();
 
             setExample(data.example);
-            setResult(data.result);
+            setCorrectResult(data.result);
             setFormula(data.formula);
         } catch (error) {
             console.error("Error fetching example:", error);
@@ -25,7 +25,7 @@ const useGenerateExample = (operation) => {
         generateNewExample();
     }, [operation]);
 
-    return { example, result, formula, generateNewExample };
+    return { example, formula, generateNewExample };
 };
 
 export default useGenerateExample;

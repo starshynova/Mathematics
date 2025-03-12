@@ -87,111 +87,204 @@
 
 
 
+// import { DndContext, useDraggable, useDroppable } from "@dnd-kit/core";
+// import { useState } from "react";
+// import {randomAnswers } from "../hooks/useGenerateAnswer.jsx";
+// // const initialAnswers = [
+// //   { id: "1", text: "Ответ 1", correct: false },
+// //   { id: "2", text: "Ответ 2", correct: false },
+// //   { id: "3", text: "Ответ 3", correct: false },
+// //   { id: "4", text: "Правильный ответ", correct: true },
+// // ];
+
+// const AnswerCard = ({ id, text, isDropped, isDragging }) => {
+//   const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+
+//   const style = {
+//     transform: transform
+//       ? `translate(${transform.x}px, ${transform.y}px)`
+//       : "none",
+//     transition: isDragging ? "none" : "transform 0.3s ease-in-out",
+//   };
+
+//   return (
+//     <div
+//       ref={setNodeRef}
+//       {...listeners}
+//       {...attributes}
+//       className={`answer-card ${isDropped ? "empty-card" : ""}`}
+//       style={style}
+//     >
+//       {isDropped ? "" : text}
+//     </div>
+//   );
+// };
+
+// const DropZone = ({ droppedAnswer }) => {
+//   const { setNodeRef } = useDroppable({ id: "dropzone" });
+
+//   return (
+//     <div ref={setNodeRef} className="drop-zone">
+//       {droppedAnswer ? (
+//         <div className="dropped-card">{droppedAnswer.text}</div>
+//       ) : (
+//         "Перетащи сюда"
+//       )}
+//     </div>
+//   );
+// };
+
+// const Quiz = () => {
+//   const [answers, setAnswers] = useState(randomAnswers);
+//   const [droppedAnswer, setDroppedAnswer] = useState(null);
+//   const [draggingItem, setDraggingItem] = useState(null);
+
+//   const handleDragStart = (event) => {
+//     setDraggingItem(event.active.id);
+//   };
+
+//   const handleDragEnd = (event) => {
+//     const { over, active } = event;
+//     const selectedAnswer = answers.find((a) => a.id === active.id);
+
+//     if (over?.id === "dropzone") {
+//       // Если в drop-зоне уже есть ответ, вернуть его назад
+//       if (droppedAnswer) {
+//         setAnswers((prev) =>
+//           prev.map((a) =>
+//             a.id === droppedAnswer.id ? { ...a, isDropped: false } : a
+//           )
+//         );
+//       }
+
+//       // Перемещаем новый ответ в drop-зону
+//       setDroppedAnswer(selectedAnswer);
+//       setAnswers((prev) =>
+//         prev.map((a) =>
+//           a.id === active.id ? { ...a, isDropped: true } : a
+//         )
+//       );
+//     }
+
+//     setDraggingItem(null);
+//   };
+
+//   return (
+//     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+//       <div className="quiz-container">
+//         <div className="answers-container">
+//           {answers.map((answer) => (
+//             <AnswerCard
+//               key={answer.id}
+//               id={answer.id}
+//               text={answer.text}
+//               isDropped={answer.isDropped}
+//               isDragging={draggingItem === answer.id}
+//             />
+//           ))}
+//         </div>
+//         <DropZone droppedAnswer={droppedAnswer} />
+//         {droppedAnswer && (
+//           <div className={droppedAnswer.correct ? "correct-msg" : "wrong-msg"}>
+//             {droppedAnswer.correct ? "Правильно!" : "Неправильно!"}
+//           </div>
+//         )}
+//       </div>
+//     </DndContext>
+//   );
+// };
+
+// export default Quiz;
+
+
+
+
 import { DndContext, useDraggable, useDroppable } from "@dnd-kit/core";
 import { useState } from "react";
-
-const initialAnswers = [
-  { id: "1", text: "Ответ 1", correct: false },
-  { id: "2", text: "Ответ 2", correct: false },
-  { id: "3", text: "Ответ 3", correct: false },
-  { id: "4", text: "Правильный ответ", correct: true },
-];
+import useGenerateAnswer from "../hooks/useGenerateAnswer.jsx";
 
 const AnswerCard = ({ id, text, isDropped, isDragging }) => {
-  const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
+    const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
 
-  const style = {
-    transform: transform
-      ? `translate(${transform.x}px, ${transform.y}px)`
-      : "none",
-    transition: isDragging ? "none" : "transform 0.3s ease-in-out",
-  };
+    const style = {
+        transform: transform ? `translate(${transform.x}px, ${transform.y}px)` : "none",
+        transition: isDragging ? "none" : "transform 0.3s ease-in-out",
+    };
 
-  return (
-    <div
-      ref={setNodeRef}
-      {...listeners}
-      {...attributes}
-      className={`answer-card ${isDropped ? "empty-card" : ""}`}
-      style={style}
-    >
-      {isDropped ? "" : text}
-    </div>
-  );
+    return (
+        <div
+            ref={setNodeRef}
+            {...listeners}
+            {...attributes}
+            className={`answer-card ${isDropped ? "empty-card" : ""}`}
+            style={style}
+        >
+            {isDropped ? "" : text}
+        </div>
+    );
 };
 
 const DropZone = ({ droppedAnswer }) => {
-  const { setNodeRef } = useDroppable({ id: "dropzone" });
+    const { setNodeRef } = useDroppable({ id: "dropzone" });
 
-  return (
-    <div ref={setNodeRef} className="drop-zone">
-      {droppedAnswer ? (
-        <div className="dropped-card">{droppedAnswer.text}</div>
-      ) : (
-        "Перетащи сюда"
-      )}
-    </div>
-  );
-};
-
-const Quiz = () => {
-  const [answers, setAnswers] = useState(initialAnswers);
-  const [droppedAnswer, setDroppedAnswer] = useState(null);
-  const [draggingItem, setDraggingItem] = useState(null);
-
-  const handleDragStart = (event) => {
-    setDraggingItem(event.active.id);
-  };
-
-  const handleDragEnd = (event) => {
-    const { over, active } = event;
-    const selectedAnswer = answers.find((a) => a.id === active.id);
-
-    if (over?.id === "dropzone") {
-      // Если в drop-зоне уже есть ответ, вернуть его назад
-      if (droppedAnswer) {
-        setAnswers((prev) =>
-          prev.map((a) =>
-            a.id === droppedAnswer.id ? { ...a, isDropped: false } : a
-          )
-        );
-      }
-
-      // Перемещаем новый ответ в drop-зону
-      setDroppedAnswer(selectedAnswer);
-      setAnswers((prev) =>
-        prev.map((a) =>
-          a.id === active.id ? { ...a, isDropped: true } : a
-        )
-      );
-    }
-
-    setDraggingItem(null);
-  };
-
-  return (
-    <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="quiz-container">
-        <div className="answers-container">
-          {answers.map((answer) => (
-            <AnswerCard
-              key={answer.id}
-              id={answer.id}
-              text={answer.text}
-              isDropped={answer.isDropped}
-              isDragging={draggingItem === answer.id}
-            />
-          ))}
+    return (
+        <div ref={setNodeRef} className="drop-zone">
+            {droppedAnswer ? (
+                <div className="dropped-card">{droppedAnswer.text}</div>
+            ) : (
+                "Перетащи сюда"
+            )}
         </div>
-        <DropZone droppedAnswer={droppedAnswer} />
-        {droppedAnswer && (
-          <div className={droppedAnswer.correct ? "correct-msg" : "wrong-msg"}>
-            {droppedAnswer.correct ? "Правильно!" : "Неправильно!"}
-          </div>
-        )}
-      </div>
-    </DndContext>
-  );
+    );
 };
 
-export default Quiz;
+const Dnd = () => {
+    const {answers} = useGenerateAnswer();
+    const [droppedAnswer, setDroppedAnswer] = useState(null);
+    const [draggingItem, setDraggingItem] = useState(null);
+
+    const handleDragStart = (event) => {
+        setDraggingItem(event.active.id);
+    };
+
+    const handleDragEnd = (event) => {
+        const { over, active } = event;
+        const selectedAnswer = answers.find((a) => a.value.toString() === active.id);
+
+        if (over?.id === "dropzone") {
+            if (droppedAnswer) {
+                setDroppedAnswer(null);
+            }
+
+            setDroppedAnswer(selectedAnswer);
+        }
+
+        setDraggingItem(null);
+    };
+
+    return (
+        <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+            <div className="quiz-container">
+                <div className="answers-container">
+                    {answers.map((answer) => (
+                        <AnswerCard
+                            key={answer.value}
+                            id={answer.value.toString()}
+                            text={answer.value.toString()}
+                            isDropped={droppedAnswer?.value === answer.value}
+                            isDragging={draggingItem === answer.value.toString()}
+                        />
+                    ))}
+                </div>
+                <DropZone droppedAnswer={droppedAnswer} />
+                {droppedAnswer && (
+                    <div className={droppedAnswer.isCorrect ? "correct-msg" : "wrong-msg"}>
+                        {droppedAnswer.isCorrect ? "Правильно!" : "Неправильно!"}
+                    </div>
+                )}
+            </div>
+        </DndContext>
+    );
+};
+
+export default Dnd;

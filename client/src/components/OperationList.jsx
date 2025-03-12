@@ -22,7 +22,8 @@ const OperationList = () => {
     return (
         <div className="operation-list">
             {data.map((question) => (
-                <Link to={`/${question.operation}`}>
+                <Link to={`/${question.operation}`} key={question.operation}>
+                {/* <Link to={'/quiz'}> */}
                 <Button className="operation-button" title={question.operation.charAt(0).toUpperCase() + question.operation.slice(1)} />
                 </Link>
             ))}
