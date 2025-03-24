@@ -41,10 +41,14 @@ const QuestionPageQuiz = () => {
           </div>
           <Dnd />
           <div className="answer-block">
-          <Button className="answer-button" onClick={nextExample} title="Next example"/>
-          <Link to={'/result'}>
-            <Button className="answer-button" title="Show result" />
-          </Link>
+            <Button
+              className="answer-button"
+              onClick={nextExample}
+              title="Next example"
+            />
+            <Link to={"/result"}>
+              <Button className="answer-button" title="Show result" />
+            </Link>
           </div>
         </div>
       </div>
