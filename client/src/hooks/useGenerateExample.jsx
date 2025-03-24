@@ -13,9 +13,13 @@ const useGenerateExample = (operation) => {
             const response = await fetch(API_ROUTES.GENERATE_EXAMPLE(operation));
             const data = await response.json();
 
+            console.log("Fetched data:", data);
+
             setExample(data.example);
             setCorrectResult(data.result);
             setFormula(data.formula);
+
+            console.log("Updated correctResult:", data.result);
         } catch (error) {
             console.error("Error fetching example:", error);
         }
@@ -23,9 +27,10 @@ const useGenerateExample = (operation) => {
 
     useEffect(() => {
         generateNewExample();
+        console.log("correctResult:", correctResult);
     }, [operation]);
 
-    return { example, formula, generateNewExample };
+    return { example, formula, correctResult, generateNewExample };
 };
 
 export default useGenerateExample;
