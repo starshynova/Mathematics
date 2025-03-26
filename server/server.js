@@ -62,6 +62,17 @@ app.get("/generate/:operation", async (req, res) => {
   }
 });
 
+app.get("/generate/answer", async (req, res) => {
+  // const { operation } = req.params;
+  try {
+      const exampleData = await generateAnswer();
+      res.json(exampleData);
+  } catch (error) {
+      res.status(400).json({ error: error.message });
+  }
+}
+);
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
