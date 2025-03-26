@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import InputField from "../components/InputField.jsx";
 import Button from "../components/Button.jsx";
@@ -10,7 +10,6 @@ import defaultImage from "../assets/default.png";
 import correctImage from "../assets/happy.png";
 import incorrectImage from "../assets/sad.png";
 import Header from "../components/Header.jsx";
-import { CountContext } from "../context/CountContext.jsx";
 
 const QuestionPage = () => {
   const { operation } = useParams();
@@ -18,7 +17,6 @@ const QuestionPage = () => {
     useGenerateExample(operation);
   const [userAnswer, setUserAnswer] = useState("");
   const { correctAnswer, setCorrectAnswer, answerCalculation } = useCount();
-  // const { correctResult, setCorrectResult } = useContext(CountContext);
   const [imageSrc, setImageSrc] = useState(defaultImage);
 
   const handleInputChange = (value) => {
@@ -39,7 +37,6 @@ const QuestionPage = () => {
     setUserAnswer("");
     setCorrectAnswer("");
     setImageSrc(defaultImage);
-    console.log("some text");
   };
 
   return (
@@ -48,17 +45,13 @@ const QuestionPage = () => {
       <div className="example-page">
         <div className="image-block">
           <img src={imageSrc} className="img-example-page" />
+          <p className="correct-incorrect-answer">{correctAnswer}</p>
         </div>
         <div className="example-block">
           <h2>{operation.charAt(0).toUpperCase() + operation.slice(1)}</h2>
           <p className="formula">{formula}</p>
-          <div className="example-answer">
-            <div className="example-box">
-              <p className="example-text">{example}</p>
-            </div>
-            <div className="center">
-              <p className="correct-incorrect-answer">{correctAnswer}</p>
-            </div>
+          <div className="example-box">
+            <p className="example-text">{example}</p>
           </div>
           <InputField
             onInputChange={handleInputChange}

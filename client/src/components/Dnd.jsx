@@ -1,7 +1,10 @@
 import { DndContext, useDraggable, useDroppable } from "@dnd-kit/core";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useGenerateAnswer from "../hooks/useGenerateAnswer.jsx";
+import { useCount } from "../hooks/useCount.jsx";
 import "./component.css";
+import { useParams } from "react-router-dom";
+import useGenerateExample from "../hooks/useGenerateExample.jsx";
 
 const AnswerCard = ({ id, text, isDropped, isDragging }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({ id });
@@ -42,10 +45,17 @@ const DropZone = ({ droppedAnswer }) => {
   );
 };
 
-const Dnd = () => {
+const Dnd = ({ resetDropZone }) => {
+  const { operation } = useParams();
   const { answers } = useGenerateAnswer();
+  const { answerCalculation, setCorrectAnswer } = useCount();
   const [droppedAnswer, setDroppedAnswer] = useState(null);
   const [draggingItem, setDraggingItem] = useState(null);
+  const { correctResult } = useGenerateExample(operation);
+
+  useEffect(() => {
+    setDroppedAnswer(null);
+  }, [resetDropZone]);
 
   const handleDragStart = (event) => {
     setDraggingItem(event.active.id);
@@ -59,10 +69,17 @@ const Dnd = () => {
 
     if (over?.id === "dropzone") {
       setDroppedAnswer(selectedAnswer);
+      answerCalculation(selectedAnswer.value, correctResult);
     }
 
     setDraggingItem(null);
   };
+
+  useEffect(() => {
+    if (droppedAnswer) {
+      setCorrectAnswer(droppedAnswer.isCorrect ? "Correct!" : "Try again!");
+    }
+  }, [droppedAnswer]);
 
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
@@ -79,15 +96,6 @@ const Dnd = () => {
           ))}
         </div>
         <DropZone droppedAnswer={droppedAnswer} />
-        {droppedAnswer && (
-          <div
-            className={droppedAnswer.isCorrect ? "correct-msg" : "wrong-msg"}
-          >
-            {droppedAnswer.isCorrect
-              ? "Correct!"
-              : "Your answer is wrong. Try again!"}
-          </div>
-        )}
       </div>
     </DndContext>
   );
