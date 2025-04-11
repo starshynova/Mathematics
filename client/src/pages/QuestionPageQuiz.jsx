@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "../components/component.css";
 import Header from "../components/Header.jsx";
 import useGenerateAnswer from "../hooks/useGenerateAnswer.jsx";
@@ -16,19 +16,23 @@ const QuestionPageQuiz = () => {
   const [imageSrc, setImageSrc] = useState(defaultImage);
   const [resetDropZone, setResetDropZone] = useState(0);
   const { correctAnswer, setCorrectAnswer } = useCount();
+  const [disableNextExample, setDisableNextExample] = useState(true);
 
   const nextExample = () => {
     generateNewExample();
     setImageSrc(defaultImage);
     setCorrectAnswer("Give an answer");
     setResetDropZone((prev) => prev + 1);
+    setDisableNextExample(true);
   };
 
   useEffect(() => {
     if (correctAnswer === "Correct!") {
       setImageSrc(correctImage);
+      setDisableNextExample(false);
     } else if (correctAnswer === "Try again!") {
       setImageSrc(incorrectImage);
+      setDisableNextExample(false);
     }
   }, [correctAnswer]);
 
@@ -39,16 +43,12 @@ const QuestionPageQuiz = () => {
         <div className="image-block">
           <img src={imageSrc} className="img-example-page" />
           <p className="correct-incorrect-answer">{correctAnswer}</p>
-          <div className="answer-block-quiz">
-            <Button
-              className="answer-button"
-              onClick={nextExample}
-              title="Next example"
-            />
-            <Link to={"/result"}>
-              <Button className="answer-button" title="Show result" />
-            </Link>
-          </div>
+          <Button
+            disabled={disableNextExample}
+            className="answer-button"
+            onClick={nextExample}
+            title="Next example"
+          />
         </div>
         <div className="example-block">
           <h2>{operation.charAt(0).toUpperCase() + operation.slice(1)}</h2>

@@ -1,7 +1,7 @@
 .main-page {
   width: 100%;
   height: auto;
-  align-items: flex-start;
+  align-items: center;
   display: flex;
 }
 
@@ -12,10 +12,10 @@
 }
 
 .img-size {
-  width: 80%;
+  width: 70%;
   height: auto;
-  margin-left: 10%;
-  margin-top: 40px;
+  margin-left: 15%;
+  margin-top: 20px;
 }
 
 .main-content {
@@ -46,6 +46,12 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-size: 20px;
+  color: rgb(64, 0, 77);
+  font-weight: normal;
+}
+
 .operation-list {
   width: 80%;
   height: auto;
@@ -71,7 +77,7 @@ button:hover {
   box-sizing: border-box; 
   height: 80px;
   background-color: rgb(255, 255, 255);
-  color: rgb(22, 23, 54);
+  color: rgb(64, 0, 77);
   border-radius: 24px;
   border: none;
   font-size: 24px;
@@ -112,8 +118,8 @@ button:hover {
   width: 100%;
   flex-grow: 1;
   height: 60px;
-  background-color: rgb(65, 225, 190);
-  color:rgb(22, 23, 54);
+  background-color: #41e1be;
+  color:rgb(64, 0, 77);
   font-size: 24px;
   border-radius: 20px;
   cursor: pointer;
@@ -127,7 +133,7 @@ button:hover {
   width: 40%;
   height: 60px;
   background-color: rgb(48, 165, 140);
-  color:rgb(22, 23, 54);
+  color:rgb(64, 0, 77);
   font-size: 24px;
   border-radius: 20px;
   cursor: pointer;
@@ -146,10 +152,23 @@ button:hover {
   position: absolute;
   left: 60px;
   top: 40px;
-  width: 80px;
+  padding: 0 20px;
   height: 40px;
-  background-color: rgb(22, 23, 54);
-  color: rgb(236, 236, 236);
+  background-color:rgb(64, 0, 77);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+}
+
+.show-result-button {
+  position: absolute;
+  right: 60px;
+  top: 40px;
+  padding: 0 20px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(64, 0, 77);
   font-size: 20px;
   border-radius: 8px;
   border: none;
@@ -167,6 +186,7 @@ button:hover {
   width: 40%;
   height: 100%;
   justify-content: center;
+  align-items: center;
 }
 
 .img-example-page {
@@ -241,18 +261,9 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   row-gap: 20px;
-  justify-content: space-between;
+  column-gap: 40px;
+  justify-content: center;
   margin-bottom: 40px;
-}
-
-.answer-block-quiz {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  row-gap: 20px;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  padding: 0 10%;
 }
 
 .answer-button {
@@ -261,13 +272,23 @@ button:hover {
   border-radius: 30px;
   border: none;
   background-color:rgba(255, 255, 255, 1);
-  color: rgba (22, 23, 54, 1);
+  color: rgb(64, 0, 77);
   font-size: 24px;
   cursor: pointer;
 }
 
 .answer-button:hover {
   background-color: rgba(255, 222, 54, 1);
+}
+
+.answer-button:disabled {
+  background-color: rgb(206, 206, 206);
+  color: rgb(115, 115, 115);
+}
+
+.answer-button:disabled:hover {
+  cursor: not-allowed;
+  scale: 1;
 }
 
 .result-block {
@@ -297,7 +318,7 @@ button:hover {
 
 .go-to-main-page-button:hover {
   background-color: rgba(255, 222, 54, 1);
-  color: rgb(22, 23, 54)
+  color: rgb(64, 0, 77)
 }
 
 .quiz-container {
@@ -317,7 +338,7 @@ button:hover {
 .answer-card {
   width: 160px;
   height: 80px;
-  background-color: #3b82f6;
+  background-color: #154798;
   color: white;
   font-size: 24px;
   text-align: center;
@@ -345,13 +366,11 @@ button:hover {
   border-radius: 8px;
   position: relative;
   font-size: 16px;
-  padding: 0 10px;
 }
 
 .dropped-card {
   width: 100%;
   height: 100%;
-  background-color: #3b82f6;
   color: white;
   text-align: center;
   font-size: 30px;
@@ -537,8 +556,6 @@ h2 {
   .example-block {
     margin-top: 20px;
     width: 100%;
-    /* justify-content: center;
-    align-items: center; */
   }
   
   .formula {
@@ -586,48 +603,3 @@ h2 {
     font-size: 22px;
   }
 }
-
-/* .answer-card {
-  width: 256px;
-  height: 128px;
-  padding: 16px; 
-  margin: 8px; 
-  background-color: #3b82f6; 
-  color: white; 
-  text-align: center; 
-  border-radius: 4px; 
-  cursor: grab; 
-}
-
-.drop-zone {
-  padding: 24px; 
-  border-width: 2px; 
-  border-style: dashed; 
-  border-color: #6b7280; 
-  border-radius: 8px; 
-  width: 256px; 
-  height: 128px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-}
-
-.dnd-zone {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.drop-card {
-  position: absolute;
-  width: 10rem;
-  height: 5rem;
-  background-color: #3b82f6;
-  color: #ffffff;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
-
-

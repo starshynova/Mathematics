@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import InputField from "../components/InputField.jsx";
 import Button from "../components/Button.jsx";
 import useGenerateExample from "../hooks/useGenerateExample.jsx";
@@ -18,13 +18,16 @@ const QuestionPage = () => {
   const [userAnswer, setUserAnswer] = useState("");
   const { correctAnswer, setCorrectAnswer, answerCalculation } = useCount();
   const [imageSrc, setImageSrc] = useState(defaultImage);
+  const [disableNextExample, setDisableNextExample] = useState(true);
 
   const handleInputChange = (value) => {
     setUserAnswer(value);
   };
 
+  
   const checkAnswer = () => {
     answerCalculation(userAnswer, correctResult);
+    setDisableNextExample(false);
     if (Number(userAnswer) === correctResult) {
       setImageSrc(correctImage);
     } else {
@@ -37,6 +40,7 @@ const QuestionPage = () => {
     setUserAnswer("");
     setCorrectAnswer("Give an answer");
     setImageSrc(defaultImage);
+    setDisableNextExample(true);
   };
 
   return (
@@ -64,13 +68,11 @@ const QuestionPage = () => {
               title="Check answer"
             />
             <Button
+              disabled={disableNextExample}
               className="answer-button"
               onClick={nextExample}
               title="Next example"
             />
-            <Link to={"/result"}>
-              <Button className="answer-button" title="Show result" />
-            </Link>
           </div>
         </div>
       </div>
