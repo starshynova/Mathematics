@@ -35,7 +35,12 @@ const DropZone = ({ droppedAnswer }) => {
   return (
     <div ref={setNodeRef} className="drop-zone">
       {droppedAnswer ? (
-        <div className="dropped-card" style={{ color: "#000000" }}>
+        <div
+          className="dropped-card"
+          style={{
+            backgroundColor: droppedAnswer.isCorrect ? "#3bcf59" : "#FF5858",
+          }}
+        >
           {droppedAnswer.value.toString()}
         </div>
       ) : (
