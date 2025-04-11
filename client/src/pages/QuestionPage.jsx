@@ -35,7 +35,7 @@ const QuestionPage = () => {
   const nextExample = () => {
     generateNewExample();
     setUserAnswer("");
-    setCorrectAnswer("");
+    setCorrectAnswer("Give an answer");
     setImageSrc(defaultImage);
   };
 
