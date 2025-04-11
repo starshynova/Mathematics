@@ -27,40 +27,36 @@ const MainPage = () => {
         <img src={image} className="img-size" alt="Math" />
       </div>
       <div className="main-content">
-        <div className="main-title">
+        
           <h1>Mathematics</h1>
+          {!method ? (
+            <div style={{ width: '80%', display: 'flex', flexDirection: 'column' }}>
           <h2>Are you ready?</h2>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            width: "80%",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
-          {!method ? <h3>Choose the method</h3> : <h3> </h3>}
+          <h2>If yes, just choose the method</h2>
           <div className="method-list">
             <Button
               title="Quiz"
-              className={
-                method === "quiz" ? "method-selected-button" : "method-button"
-              }
+              className="method-button"
               onClick={handleQuiz}
             />
+            <h3>Choose 1 of 4 answers</h3>
+            </div>
+            <div className="method-list">
             <Button
               title="Your answer"
-              className={
-                method === "answer" ? "method-selected-button" : "method-button"
-              }
+              className="method-button"
               onClick={handleAnswer}
             />
+            <h3>Write the correct answer yourself</h3>
           </div>
-        </div>
+          </div>) : (
         <OperationList key={method} />
+          )}
       </div>
     </div>
   );
 };
 
 export default MainPage;
+
+
