@@ -11,6 +11,7 @@ const ResultPage = () => {
     countIncorrectAnswer,
     setCountCorrectAnswer,
     setCountIncorrectAnswer,
+    setCorrectAnswer,
   } = useCount();
   const {setMethod} = useContext(MethodContext);
 
@@ -36,6 +37,7 @@ const ResultPage = () => {
     setCountCorrectAnswer(0);
     setCountIncorrectAnswer(0);
     setMethod("");
+    setCorrectAnswer("Give an answer");
   };
 
   return (
