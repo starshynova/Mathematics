@@ -19,17 +19,18 @@ const QuestionPage = () => {
   const { correctAnswer, setCorrectAnswer, answerCalculation } = useCount();
   const [imageSrc, setImageSrc] = useState(defaultImage);
   const [disableNextExample, setDisableNextExample] = useState(true);
+  const [disableCheckAnswer, setDisableCheckAnswer] = useState(false);
 
   const handleInputChange = (value) => {
     setUserAnswer(value);
   };
 
-  
   const checkAnswer = () => {
     answerCalculation(userAnswer, correctResult);
     setDisableNextExample(false);
     if (Number(userAnswer) === correctResult) {
       setImageSrc(correctImage);
+      setDisableCheckAnswer(true);
     } else {
       setImageSrc(incorrectImage);
     }
@@ -41,6 +42,7 @@ const QuestionPage = () => {
     setCorrectAnswer("Give an answer");
     setImageSrc(defaultImage);
     setDisableNextExample(true);
+    setDisableCheckAnswer(false);
   };
 
   return (
@@ -63,6 +65,7 @@ const QuestionPage = () => {
           />
           <div className="answer-block">
             <Button
+              disabled={disableCheckAnswer}
               className="answer-button"
               onClick={checkAnswer}
               title="Check answer"
