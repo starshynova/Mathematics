@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useCount } from "../hooks/useCount.jsx";
 import { Link } from "react-router-dom";
 import Button from "../components/Button.jsx";
+import { MethodContext } from "../context/MethodContext.jsx";
 
 const ResultPage = () => {
   const [advice, setAdvice] = useState("");
@@ -11,6 +12,7 @@ const ResultPage = () => {
     setCountCorrectAnswer,
     setCountIncorrectAnswer,
   } = useCount();
+  const {setMethod} = useContext(MethodContext);
 
   useEffect(() => {
     function adviceForUser() {
@@ -21,7 +23,7 @@ const ResultPage = () => {
       if (generalResult >= 80) {
         setAdvice("Congratulations! You are very good at math!");
       } else if (generalResult > 50 && generalResult < 80) {
-        setAdvice("You are on the right way, but you need some practice.");
+        setAdvice("You are on the right way! Just continue practicing!");
       } else {
         setAdvice("Your result is not so good... You need more practice!");
       }
@@ -33,11 +35,12 @@ const ResultPage = () => {
   const goToMainPage = () => {
     setCountCorrectAnswer(0);
     setCountIncorrectAnswer(0);
+    setMethod("");
   };
 
   return (
     <div className="result-block">
-      <h1>Your score is</h1>
+      <h1>Your score</h1>
       <p className="result">Correct answers: {countCorrectAnswer}</p>
       <p className="result">Incorrect answers: {countIncorrectAnswer}</p>
       <h2>{advice}</h2>

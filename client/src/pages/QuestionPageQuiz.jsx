@@ -20,7 +20,7 @@ const QuestionPageQuiz = () => {
   const nextExample = () => {
     generateNewExample();
     setImageSrc(defaultImage);
-    setCorrectAnswer("");
+    setCorrectAnswer("Give an answer");
     setResetDropZone((prev) => prev + 1);
   };
 

@@ -39,7 +39,7 @@ const DropZone = ({ droppedAnswer }) => {
           {droppedAnswer.value.toString()}
         </div>
       ) : (
-        "Your answer"
+        "Put your answer here using drag and drop"
       )}
     </div>
   );
