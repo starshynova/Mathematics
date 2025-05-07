@@ -40,8 +40,8 @@ Data necessary for the application - the name of the math operation, the formula
 
 ### Domain
 
-https://math-app-for-children.netlify.app - to run the application
-https://react-project-t4ti.onrender.com/api/math-operation - to run the server
+1. https://math-app-for-children.netlify.app - to run the application
+2. https://react-project-t4ti.onrender.com/api/math-operation - to run the server
 
 ## Structure of the project
 
