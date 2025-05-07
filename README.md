@@ -1,4 +1,6 @@
-# [Math App for children](https://math-app-for-children.netlify.app/)
+# Mathematics
+
+You can try this app by visiting [Math App for children](https://math-app-for-children.netlify.app/)
 
 ## Overview
 
