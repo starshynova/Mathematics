@@ -38,10 +38,10 @@ Data necessary for the application - the name of the math operation, the formula
 1. Netlify.com - hosting for the client side
 2. Render.com - hosting for the server side
 
-## Getting started
+### Domain
 
-1. https://react-project-t4ti.onrender.com/api/math-operation - to run the server
-2. https://math-app-for-children.netlify.app/ - to run the application
+https://math-app-for-children.netlify.app - to run the application
+https://react-project-t4ti.onrender.com/api/math-operation - to run the server
 
 ## Structure of the project
 
