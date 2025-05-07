@@ -33,7 +33,7 @@ Data necessary for the application - the name of the math operation, the formula
 2. Express.js
 3. MongoDB
 
-### Deploy
+### Deployment
 
 1. Netlify.com - hosting for the client side
 2. Render.com - hosting for the server side
