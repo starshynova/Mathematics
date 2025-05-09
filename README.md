@@ -30,7 +30,7 @@ Mathematics is a web application that helps children practice basic math skills 
 
 Data necessary for the application - the name of the math operation, the formula, the range of accepted values, the validation formula. These data are stored in the MongoDB database. React application fetches this data using fetch API, and converts strings into expression format.
 
-## Technologies
+## Tech Stack
 
 ### Client side
 
