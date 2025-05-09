@@ -4,15 +4,27 @@ You can try this app by visiting [Mathematics](https://math-app-for-children.net
 
 ## Overview
 
-This is a training application for children. It helps the user to practice simple maths calculations.
+This isis a web application that helps children practice basic math skills through interactive exercises and two answer modes.
 
-## Usage
+## Features
 
-1. On the main page of the application, the user can select a mathematical expression to solve the examples
-2. On the example page the user sees examples for the selected formula. The numbers in the examples are generated randomly according to the check (the answer must be a positive integer). When the user has written an answer in the input field, he/she can check it. If the answer is correct or incorrect, the user sees the relevant message.
-If the user wants, he/she can go to the previous page to select another mathematical expression.
-3. On the result page, the user can see the number of correct and incorrect answers. The user can also go back to the main page.The user can also go back to the main page.
-This action resets the correct/incorrect answer count to zero.
+1. Math Operation Selection
+    On the main page, the user selects a mathematical operation to begin solving examples.
+
+2. Two Answer Modes
+    The user can choose how to answer:
+    - Multiple Choice: 4 options are shown — the correct answer and 3 randomly generated numbers (±20 from the result, all positive integers).
+    - Free Input: The user types their own answer. The user can freely switch between these two modes at any time during the quiz.
+
+3. Smart Example Generation
+    Examples are generated randomly, ensuring that the result is always a positive integer.
+
+4. Immediate Feedback
+    After submitting an answer, the app displays whether it was correct or incorrect.
+
+5. Result Summary
+    The number of correct and incorrect answers is shown only on the result page after the user finishes the quiz.
+    Returning to the main page resets the answer count and lets the user select a new operation.
 
 ## Getting the data
 
