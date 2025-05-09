@@ -4,7 +4,7 @@ You can try this app by visiting [Mathematics](https://math-app-for-children.net
 
 ## Overview
 
-This isis a web application that helps children practice basic math skills through interactive exercises and two answer modes.
+Mathematics is a web application that helps children practice basic math skills through interactive exercises and two answer modes.
 
 ## Features
 
